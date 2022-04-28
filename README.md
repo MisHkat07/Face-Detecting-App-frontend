@@ -1,7 +1,4 @@
-# SmartBrain - v3
-Final project for ZTM course
+# Face Detecting App
 
-
-1. Clone this repo
-2. Run `npm install`
-3. Run `npm start`
+ Run `npm install`
+ Run `npm start`
