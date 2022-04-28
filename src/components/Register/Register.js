@@ -22,28 +22,29 @@ class Register extends React.Component {
     this.setState({password: event.target.value})
   }
 
- onSubmitSignIn = () => {
-     fetch('https://face-detecting-app-07.herokuapp.com/register', {
-       method: 'post',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({
-         email: this.state.email,
-         password: this.state.password,
-         name: this.state.name
-       })
-     }).then(response => response.json())
-       .then(user => {
-         if (user.id) {
-           this.props.loadUser(user);
-           this.props.onRouteChange('home');
-         }
-       });
-      };
+  onSubmitSignIn = () => {
+    fetch('https://face-detecting-app-07.herokuapp.com/register', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name
+      })
+    })
+      .then(response => response.json())
+      .then(user => {
+        if (user.id) {
+          this.props.loadUser(user)
+          this.props.onRouteChange('home');
+        }
+      })
+  }
 
   render() {
     return (
-      <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 white-80">
+      <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+        <main className="pa4 black-80">
           <div className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0">Register</legend>
@@ -81,7 +82,7 @@ class Register extends React.Component {
             <div className="">
               <input
                 onClick={this.onSubmitSignIn}
-                className="b ph3 pv2 input-reset ba b--white white bg-transparent grow pointer f6 dib"
+                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
               />
